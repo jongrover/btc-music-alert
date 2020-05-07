@@ -77,7 +77,7 @@ var api = 'https://www.bitstamp.net/api/ticker/',
     $audio[0].currentTime = 0;
     $parent.data('trigger', $price.val());
     $parent.data('opt', $opt.val());
-    $optChoice.text($parent.data('opt'));
+    $optChoice.text($parent.data('opt')+' than');
     $alertPrice.text($parent.data('trigger'));
     if (id == 'alert-1') {
       checkPriceAlert1();
