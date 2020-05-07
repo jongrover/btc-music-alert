@@ -18,6 +18,7 @@ h2 {
 .row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .alert {
