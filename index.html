@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bitcoin Musical Price Alert</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>₿itcoin Music Alert - Price: $<span id="current-price">0.00</span></h1>
+
+  <div class="row">
+
+    <div id="alert-1" class="alert" data-trigger="" data-opt="">
+      <h2>Alert 1</h2>
+      <form class="set-price" action="#" method="post">
+        <select name="opt" class="opt">
+          <option value="greater" selected> > </option>
+          <option value="less"> < </option>
+        </select>
+        <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
+        <input type="submit" value="set alert price"> <a href="#" class="clear">clear</a>
+      </form>
+      <p class="message">
+        Alert if <span class="opt-choice"></span> $<span class="alert-price">0.00</span>
+      </p>
+      <audio controls>
+        <source type="audio/mpeg" src="audio/la-bamba.mp3">
+        <source type="audio/ogg" src="audio/la-bamba.ogg">
+        Your browser does not support HTML5 Audio!
+      </audio>
+    </div><!-- alert -->
+
+    <div id="alert-2" class="alert" data-trigger="" data-opt="">
+      <h2>Alert 2</h2>
+      <form class="set-price" action="#" method="post">
+        <select name="opt" class="opt">
+          <option value="greater" selected> > </option>
+          <option value="less"> < </option>
+        </select>
+        <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
+        <input type="submit" value="set alert price">  <a href="#" class="clear">clear</a>
+      </form>
+      <p class="message">
+        Alert if <span class="opt-choice"></span> $<span class="alert-price">0.00</span>
+      </p>
+      <audio controls>
+        <source type="audio/mpeg" src="audio/twist-and-shout.mp3">
+        <source type="audio/ogg" src="audio/twist-and-shout.ogg">
+        Your browser does not support HTML5 Audio!
+      </audio>
+    </div><!-- alert -->
+
+  </div><!-- row -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
