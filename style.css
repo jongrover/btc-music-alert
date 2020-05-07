@@ -1,0 +1,27 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+audio {
+  display: block;
+  margin: 20px 0 0;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  margin: 0 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.alert {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+}
