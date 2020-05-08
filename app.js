@@ -16,11 +16,13 @@ $(function () {
       if (opt1 === 'greater') {
         if (livePrice >= trigger1) {
           $audio1[0].play();
+          $audio1.parent().addClass('triggered');
           console.log('alert 1 triggered: price greater than $'+trigger1);
         }
       } else {
         if (livePrice <= trigger1) {
           $audio1[0].play();
+          $audio1.parent().addClass('triggered');
           console.log('alert 1 triggered: price less than $'+trigger1);
         }
       }
@@ -29,11 +31,13 @@ $(function () {
       if (opt2 === 'greater') {
         if (livePrice >= trigger2) {
           $audio2[0].play();
+          $audio2.parent().addClass('triggered');
           console.log('alert 2 triggered: price greater than $'+trigger2);
         }
       } else {
         if (livePrice <= trigger2) {
           $audio2[0].play();
+          $audio2.parent().addClass('triggered');
           console.log('alert 2 triggered: price less than $'+trigger2);
         }
       }
@@ -42,11 +46,13 @@ $(function () {
       if (opt3 === 'greater') {
         if (livePrice >= trigger3) {
           $audio3[0].play();
+          $audio3.parent().addClass('triggered');
           console.log('alert 3 triggered: price greater than $'+trigger3);
         }
       } else {
         if (livePrice <= trigger3) {
           $audio3[0].play();
+          $audio3.parent().addClass('triggered');
           console.log('alert 3 triggered: price less than $'+trigger3);
         }
       }
@@ -82,6 +88,7 @@ $(function () {
         $opt = $form.find('.opt'),
         $optChoice = $parent.find('.opt-choice'),
         $alertPrice = $parent.find('.alert-price');
+    $parent.removeClass('triggered');
     $audio[0].pause();
     $audio[0].currentTime = 0;
     if (id == 'alert-1') {
@@ -114,6 +121,7 @@ $(function () {
     $alertPrice = $parent.find('.alert-price');
     $audio[0].pause();
     $audio[0].currentTime = 0;
+    $parent.removeClass('triggered');
     $price.val('');
     if (id === 'alert-1') {
       trigger1 = '';
