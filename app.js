@@ -4,6 +4,14 @@ $(function () {
       checkInterval = 200, // in milliseconds (max requests 800 requests per minute)
       livePrice = 0.00,
       $livePrice = $('#live-price'),
+      liveOpen = 0.00,
+      $liveOpen = $('#live-open'),
+      liveHigh = 0.00,
+      $liveHigh = $('#live-high'),
+      liveLow = 0.00,
+      $liveLow = $('#live-low'),
+      liveVol = 0.00,
+      $liveVol = $('#live-vol'),
       $audio1 = $('#alert-1').find('audio'),
       $audio2 = $('#alert-2').find('audio'),
       $audio3 = $('#alert-3').find('audio'),
@@ -65,7 +73,15 @@ $(function () {
       type: 'post',
       success: function (data){
        livePrice = parseFloat(data.last);
+       liveOpen = parseFloat(data.open);
+       liveHigh = parseFloat(data.high);
+       liveLow = parseFloat(data.low);
+       liveVol = parseFloat(data.volume);
        $livePrice.text(livePrice);
+       $liveOpen.text(liveOpen);
+       $liveHigh.text(liveHigh);
+       $liveLow.text(liveLow);
+       $liveVol.text(liveVol);
        //console.log('price updated to: $'+livePrice);
        if (active) {
          checkAlert();
