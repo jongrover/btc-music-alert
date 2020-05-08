@@ -100,8 +100,8 @@ var api = 'https://www.bitstamp.net/api/ticker/',
     $price.val('');
     $parent.data('trigger', '');
     $parent.data('opt', '');
-    $optChoice.text('');
-    $alertPrice.text('0.00');
+    $optChoice.text('...');
+    $alertPrice.text('...');
   });
 
 });
