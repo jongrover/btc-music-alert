@@ -81,8 +81,10 @@ var api = 'https://www.bitstamp.net/api/ticker/',
     $alertPrice.text($parent.data('trigger'));
     if (id == 'alert-1') {
       checkPriceAlert1();
-    } else {
+    } else if (id == 'alert-2') {
       checkPriceAlert2();
+    } else {
+      checkPriceAlert3();
     }
   });
 
