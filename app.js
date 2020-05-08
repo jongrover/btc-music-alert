@@ -92,7 +92,7 @@ $(function () {
        }
       },
       complete:function(data){
-       setTimeout(upDatePrice, checkInterval);
+       setTimeout(updatePrice, checkInterval);
       }
      });
   }
