@@ -62,6 +62,36 @@ var api = 'https://www.bitstamp.net/api/ticker/',
       }
      });
   }
+    
+  function checkPriceAlert3() {
+    var $parent = $('#alert-3'),
+        $currPrice = $('#current-price'),
+        $audio = $parent.find('audio'),
+        option = $parent.data('opt'),
+        trigger = parseFloat($parent.data('trigger'));
+    $.ajax({
+      url: api,
+      type: 'post',
+      success: function (data){
+       var currPrice = parseFloat(data.last);
+       $currPrice.text(currPrice);
+       if (option == 'greater') {
+         if (currPrice >= trigger) {
+           console.log('Price greater than your alert!');
+           $audio[0].play();
+         }
+       } else {
+         if (currPrice <= trigger) {
+           console.log('Price less than your alert!');
+           $audio[0].play();
+         }
+       }
+      },
+      complete:function(data){
+       setTimeout(checkPriceAlert3, checkInterval);
+      }
+     });
+  }
 
   $('form').submit(function (event) {
     event.preventDefault();
