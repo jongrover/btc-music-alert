@@ -12,6 +12,8 @@ $(function () {
       $liveLow = $('#live-low'),
       liveVol = 0.00,
       $liveVol = $('#live-vol'),
+      livePer = 0.0,
+      $livePer = $('#live-per'),
       $audio1 = $('#alert-1').find('audio'),
       $audio2 = $('#alert-2').find('audio'),
       $audio3 = $('#alert-3').find('audio'),
@@ -77,11 +79,13 @@ $(function () {
        liveHigh = parseFloat(data.high);
        liveLow = parseFloat(data.low);
        liveVol = parseFloat(data.volume);
+       livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
        $livePrice.text(livePrice);
        $liveOpen.text(liveOpen);
        $liveHigh.text(liveHigh);
        $liveLow.text(liveLow);
        $liveVol.text(liveVol);
+       $livePer.text(livePer);
        //console.log('price updated to: $'+livePrice);
        if (active) {
          checkAlert();
