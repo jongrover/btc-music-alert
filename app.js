@@ -67,7 +67,7 @@ $(function () {
     }
   }
 
-  function upDatePrice() {
+  function updatePrice() {
     $.ajax({
       url: api,
       type: 'post',
@@ -92,7 +92,7 @@ $(function () {
       }
      });
   }
-  upDatePrice();
+  updatePrice();
 
   $('form').submit(function (event) {
     event.preventDefault();
