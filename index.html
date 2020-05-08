@@ -5,55 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bitcoin Musical Price Alert</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>₿itcoin Music Alert - Price: $<span id="current-price">0.00</span></h1>
-
-  <div class="row">
-
-    <div id="alert-1" class="alert" data-trigger="" data-opt="">
-      <h2>Alert 1</h2>
-      <form class="set-price" action="#" method="post">
-        <select name="opt" class="opt">
-          <option value="greater" selected> > </option>
-          <option value="less"> < </option>
-        </select>
-        <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
-        <input type="submit" value="set alert price"> <a href="#" class="clear">clear</a>
-      </form>
-      <p class="message">
-        Alert if <span class="opt-choice"></span> $<span class="alert-price">0.00</span>
-      </p>
-      <audio controls>
-        <source type="audio/mpeg" src="la-bamba.mp3">
-        <source type="audio/ogg" src="la-bamba.ogg">
-        Your browser does not support HTML5 Audio!
-      </audio>
-    </div><!-- alert -->
-
-    <div id="alert-2" class="alert" data-trigger="" data-opt="">
-      <h2>Alert 2</h2>
-      <form class="set-price" action="#" method="post">
-        <select name="opt" class="opt">
-          <option value="greater" selected> > </option>
-          <option value="less"> < </option>
-        </select>
-        <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
-        <input type="submit" value="set alert price">  <a href="#" class="clear">clear</a>
-      </form>
-      <p class="message">
-        Alert if <span class="opt-choice"></span> $<span class="alert-price">0.00</span>
-      </p>
-      <audio controls>
-        <source type="audio/mpeg" src="twist-and-shout.mp3">
-        <source type="audio/ogg" src="twist-and-shout.ogg">
-        Your browser does not support HTML5 Audio!
-      </audio>
-    </div><!-- alert -->
-
-  </div><!-- row -->
-
+  <div class="table"><div class="cell">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="alert">
+          <h1>₿1 = $<span id="current-price">0.00</span></h1>
+        </div>
+        </div><!-- col-12-->
+      </div><!-- row -->
+      <div class="row">
+        <div class="col-4">
+          <div id="alert-1" class="alert" data-trigger="" data-opt="">
+            <h2>Alert 1</h2>
+            <form class="set-price" action="#" method="post">
+              <select name="opt" class="opt">
+                <option value="greater" selected> > </option>
+                <option value="less"> < </option>
+              </select>
+              <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
+              <input type="submit" value="set price"> <a href="#" class="clear">clear</a>
+            </form>
+            <p class="message">
+              Alert if <span class="opt-choice">...</span> $<span class="alert-price">...</span><br>
+              Track: Richie Valens - La Bamba
+            </p>
+            <audio controls>
+              <source type="audio/mpeg" src="la-bamba.mp3">
+              <source type="audio/ogg" src="la-bamba.ogg">
+              Your browser does not support HTML5 Audio!
+            </audio>
+          </div><!-- alert -->
+        </div><!-- col-4 -->
+        <div class="col-4">
+          <div id="alert-2" class="alert" data-trigger="" data-opt="">
+            <h2>Alert 2</h2>
+            <form class="set-price" action="#" method="post">
+              <select name="opt" class="opt">
+                <option value="greater" selected> > </option>
+                <option value="less"> < </option>
+              </select>
+              <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
+              <input type="submit" value="set price">  <a href="#" class="clear">clear</a>
+            </form>
+            <p class="message">
+              Alert if <span class="opt-choice">...</span> $<span class="alert-price">...</span><br>
+              Track: The Beattles - Twist And Shout
+            </p>
+            <audio controls>
+              <source type="audio/mpeg" src="twist-and-shout.mp3">
+              <source type="audio/ogg" src="twist-and-shout.ogg">
+              Your browser does not support HTML5 Audio!
+            </audio>
+          </div><!-- alert -->
+        </div><!-- col-4 -->
+        <div class="col-4">
+          <div id="alert-3" class="alert" data-trigger="" data-opt="">
+            <h2>Alert 3</h2>
+            <form class="set-price" action="#" method="post">
+              <select name="opt" class="opt">
+                <option value="greater" selected> > </option>
+                <option value="less"> < </option>
+              </select>
+              <input type="number" class="price" name="price" step="0.01" min="0.00" max="1000000.00" placeholder="0.00">
+              <input type="submit" value="set price">  <a href="#" class="clear">clear</a>
+            </form>
+            <p class="message">
+              Alert if <span class="opt-choice">...</span> $<span class="alert-price">...</span><br>
+              Track: Frank Sinatra - My Way
+            </p>
+            <audio controls>
+              <source type="audio/mpeg" src="my-way.mp3">
+              <source type="audio/ogg" src="my-way.ogg">
+              Your browser does not support HTML5 Audio!
+            </audio>
+          </div><!-- alert -->
+        </div><!-- col-4-->
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><!-- cell --></div><!-- table -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="app.js"></script>
 </body>
