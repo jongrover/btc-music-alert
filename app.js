@@ -86,6 +86,13 @@ $(function () {
        $liveLow.text(liveLow);
        $liveVol.text(liveVol);
        $livePer.text(livePer);
+       if (livePer >= 0) {
+         $livePer.addClass('stat');
+         $livePer.removeClass('neg-stat');
+       } else {
+         $livePer.addClass('neg-stat');
+         $livePer.removeClass('stat');
+       }
        //console.log('price updated to: $'+livePrice);
        if (active) {
          checkAlert();
