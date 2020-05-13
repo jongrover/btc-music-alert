@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="currency">
+    <select name="trading-pair" id="trading-pair">
+      <option value="BTCUSD" selected>BTC/USD</option>
+      <option value="BTCBRL">BTC/BRL</option>
+    </select>
+  </div>
   <div class="table"><div class="cell">
     <div class="container">
       <div class="row">
@@ -94,6 +100,7 @@
     </div><!-- container -->
   </div><!-- cell --></div><!-- table -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/currency.js@1.2.2/dist/currency.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
