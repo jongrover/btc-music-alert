@@ -1,6 +1,8 @@
 $(function () {
 
-  var api = 'https://www.bitstamp.net/api/ticker/',
+  var bitstamp = 'https://www.bitstamp.net/api/ticker/',
+      mercado = 'https://www.mercadobitcoin.net/api/BTC/ticker/',
+      api = bitstamp,
       checkInterval = 200, // in milliseconds (max requests 800 requests per minute)
       livePrice = 0.00,
       $livePrice = $('#live-price'),
@@ -70,38 +72,75 @@ $(function () {
   }
 
   function updatePrice() {
-    $.ajax({
-      url: api,
-      type: 'post',
-      success: function (data){
-       livePrice = parseFloat(data.last);
-       liveOpen = parseFloat(data.open);
-       liveHigh = parseFloat(data.high);
-       liveLow = parseFloat(data.low);
-       liveVol = parseFloat(data.volume);
-       livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
-       $livePrice.text(livePrice);
-       $liveOpen.text(liveOpen);
-       $liveHigh.text(liveHigh);
-       $liveLow.text(liveLow);
-       $liveVol.text(liveVol);
-       $livePer.text(livePer);
-       if (livePer >= 0) {
-         $livePer.addClass('stat');
-         $livePer.removeClass('neg-stat');
-       } else {
-         $livePer.addClass('neg-stat');
-         $livePer.removeClass('stat');
-       }
-       //console.log('price updated to: $'+livePrice);
-       if (active) {
-         checkAlert();
-       }
-      },
-      complete:function(data){
-       setTimeout(updatePrice, checkInterval);
-      }
-     });
+    if (api == bitstamp) {
+      $.ajax({
+        url: bitstamp,
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+          //console.log(data);
+          livePrice = currency(parseFloat(data.last));
+          liveOpen = currency(parseFloat(data.open));
+          liveHigh = currency(parseFloat(data.high));
+          liveLow = currency(parseFloat(data.low));
+          liveVol = parseFloat(data.volume);
+          livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
+          $livePrice.text(livePrice);
+          $liveOpen.text(liveOpen);
+          $liveHigh.text(liveHigh);
+          $liveLow.text(liveLow);
+          $liveVol.text(liveVol);
+          $livePer.text(livePer);
+          if (livePer >= 0) {
+            $livePer.addClass('stat');
+            $livePer.removeClass('neg-stat');
+          } else {
+            $livePer.addClass('neg-stat');
+            $livePer.removeClass('stat');
+          }
+          if (active) {
+            checkAlert();
+          }
+        },
+        complete:function (data) {
+         setTimeout(updatePrice, checkInterval);
+        }
+      });
+    } else {
+      $.ajax({
+        url: mercado,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+          //console.log(data);
+          livePrice = currency(parseFloat(data.ticker.last));
+          liveOpen = currency(parseFloat(data.ticker.open));
+          liveHigh = currency(parseFloat(data.ticker.high));
+          liveLow = currency(parseFloat(data.ticker.low));
+          liveVol = parseFloat(data.ticker.vol);
+          livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
+          $livePrice.text(livePrice);
+          $liveOpen.text(liveOpen);
+          $liveHigh.text(liveHigh);
+          $liveLow.text(liveLow);
+          $liveVol.text(liveVol);
+          $livePer.text(livePer);
+          if (livePer >= 0) {
+            $livePer.addClass('stat');
+            $livePer.removeClass('neg-stat');
+          } else {
+            $livePer.addClass('neg-stat');
+            $livePer.removeClass('stat');
+          }
+          if (active) {
+            checkAlert();
+          }
+        },
+        complete:function (data) {
+         setTimeout(updatePrice, checkInterval);
+        }
+      });
+    }
   }
   updatePrice();
 
@@ -165,6 +204,15 @@ $(function () {
     }
     $optChoice.text('...');
     $alertPrice.text('...');
+  });
+
+  $('#trading-pair').change(function () {
+    var choice = $(this).val();
+    if (choice == 'BTCUSD') {
+      api = bitstamp;
+    } else {
+      api = mercado;
+    }
   });
 
 });
