@@ -1,6 +1,4 @@
-# Bitcoin Music Price Alert
-
-<img src="screen-shot.png" alt="screen shot">
+# Bitcoin Musical Price Alert
 
 Makes use of Bitstamp &/or MercadoBitcoin API to play a song when the price hits your alert settings in USD or BRL. MIT License. Have fun!
 
@@ -13,3 +11,7 @@ Changing songs: name your music file indicating which alert it connects with, su
 - [https://www.mercadobitcoin.com.br/api-doc/](https://www.mercadobitcoin.com.br/api-doc/)
 - [https://currency.js.org/](https://currency.js.org/)
 - [https://jquery.com/](https://jquery.com/)
+
+## Tips
+
+Bitcoin address: 3LaGdaKcffxp6rta6CmTKP3oC9TyoPEFzN
