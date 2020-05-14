@@ -10,7 +10,7 @@ The alert prices are only stored in temporary JavaScript variables in your local
 
 ## Installation
 
-Click the green button at top right to Clone or Download. If Downloading unzip and open the project folder and double click on index.html to open in your default browser.
+Click the green button at top right to Clone or [Download](https://github.com/hipmeltypikachu/btc-music-alert/archive/master.zip). If Downloading unzip and open the project folder and double click on index.html to open in your default browser.
 
 ## Customizations
 
