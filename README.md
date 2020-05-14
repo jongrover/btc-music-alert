@@ -4,7 +4,7 @@
 
 Makes use of Bitstamp & MercadoBitcoin API's to play a song when the price hits your alert settings in your choice of USD, EUR, or BRL. Supports the following trading pairs for Bitcoin (BTCUSD, BTCEUR, BTCBRL), Ripple (XRPUSD, XRPEUR, XRPBRL), Litecoin (LTCUSD, LTCEUR, LTCBRL), Ethereum (ETHUSD, ETHEUR, ETHBRL), & Bitcoin Cash (BCHUSD, BCHEUR, BCHBRL).
 
-## Is It Safe?
+## Privacy
 
 The alert prices are only stored in temporary JavaScript variables in your local browsers memory, refresh the page and they are gone. No one else can see your alert prices unless they physically can see your screen. Nothing is stored in a database or anywhere, the only requests that are made remotely are to api that are passing back current price information. No data is shared with any second or third party. This means your settings are 100% private and only known to you!
 
