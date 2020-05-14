@@ -85,7 +85,7 @@ $(function () {
   }
 
   function bitstampSuccess(data) {
-    console.log(data);
+    //console.log(data);
     livePrice = currency(parseFloat(data.last));
     liveOpen = currency(parseFloat(data.open));
     liveHigh = currency(parseFloat(data.high));
@@ -111,7 +111,7 @@ $(function () {
   }
 
   function mercadoSuccess(data) {
-    console.log(data);
+    //console.log(data);
     livePrice = currency(parseFloat(data.ticker.last));
     liveOpen = currency(parseFloat(data.ticker.open));
     liveHigh = currency(parseFloat(data.ticker.high));
