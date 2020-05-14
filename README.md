@@ -2,7 +2,7 @@
 
 <img src="screen-shot.png">
 
-Makes use of Bitstamp &/or MercadoBitcoin API to play a song when the price hits your alert settings in USD or BRL. MIT License. Have fun!
+Makes use of Bitstamp & MercadoBitcoin API's to play a song when the price hits your alert settings in your choice of USD, EUR, or BRL. Supports the following trading pairs for Bitcoin (BTCUSD, BTCEUR, BTCBRL), Ripple (XRPUSD, XRPEUR, XRPBRL), Litecoin (LTCUSD, LTCEUR, LTCBRL), Ethereum (ETHUSD, ETHEUR, ETHBRL), & Bitcoin Cash (BCHUSD, BCHEUR, BCHBRL).
 
 ## Documentation
 
@@ -16,5 +16,10 @@ Changing songs: name your music file indicating which alert it connects with, su
 
 ## Tips
 
-Bitcoin address: 3LaGdaKcffxp6rta6CmTKP3oC9TyoPEFzN
 <img src="btc-tip-address.png">
+
+Bitcoin address: 3LaGdaKcffxp6rta6CmTKP3oC9TyoPEFzN
+
+## License
+
+MIT License. Have fun!
