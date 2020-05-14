@@ -121,6 +121,12 @@ input[type="submit"] {
   color: lime;
 }
 
+input.stat {
+  width: 275px;
+  background: black;
+  border: 1px solid black;
+}
+
 .neg-stat {
   color: red;
 }
