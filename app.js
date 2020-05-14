@@ -1,8 +1,21 @@
 $(function () {
 
-  var bitstamp = 'https://www.bitstamp.net/api/ticker/',
-      mercado = 'https://www.mercadobitcoin.net/api/BTC/ticker/',
-      api = bitstamp,
+  var bitstamp_btcusd = 'https://www.bitstamp.net/api/ticker/',
+      bitstamp_btceur = 'https://www.bitstamp.net/api/v2/ticker/btceur',
+      bitstamp_xrpusd = 'https://www.bitstamp.net/api/v2/ticker/xrpusd',
+      bitstamp_xrpeur = 'https://www.bitstamp.net/api/v2/ticker/xrpeur',
+      bitstamp_ltcusd = 'https://www.bitstamp.net/api/v2/ticker/ltcusd',
+      bitstamp_ltceur = 'https://www.bitstamp.net/api/v2/ticker/ltceur',
+      bitstamp_ethusd = 'https://www.bitstamp.net/api/v2/ticker/ethusd',
+      bitstamp_etheur = 'https://www.bitstamp.net/api/v2/ticker/etheur',
+      bitstamp_bchusd = 'https://www.bitstamp.net/api/v2/ticker/bchusd',
+      bitstamp_bcheur = 'https://www.bitstamp.net/api/v2/ticker/bcheur',
+      mercado_btcbrl = 'https://www.mercadobitcoin.net/api/BTC/ticker/',
+      mercado_xrpbrl = 'https://www.mercadobitcoin.net/api/XRP/ticker/',
+      mercado_ltcbrl = 'https://www.mercadobitcoin.net/api/LTC/ticker/',
+      mercado_ethbrl = 'https://www.mercadobitcoin.net/api/ETH/ticker/',
+      mercado_bchbrl = 'https://www.mercadobitcoin.net/api/BCH/ticker/',
+      api = bitstamp_btcusd,
       checkInterval = 200, // in milliseconds (max requests 800 requests per minute)
       livePrice = 0.00,
       $livePrice = $('#live-price'),
@@ -71,77 +84,243 @@ $(function () {
     }
   }
 
-  function updatePrice() {
-    if (api == bitstamp) {
-      $.ajax({
-        url: bitstamp,
-        type: 'post',
-        dataType: 'json',
-        success: function (data) {
-          //console.log(data);
-          livePrice = currency(parseFloat(data.last));
-          liveOpen = currency(parseFloat(data.open));
-          liveHigh = currency(parseFloat(data.high));
-          liveLow = currency(parseFloat(data.low));
-          liveVol = parseFloat(data.volume);
-          livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
-          $livePrice.text(livePrice);
-          $liveOpen.text(liveOpen);
-          $liveHigh.text(liveHigh);
-          $liveLow.text(liveLow);
-          $liveVol.text(liveVol);
-          $livePer.text(livePer);
-          if (livePer >= 0) {
-            $livePer.addClass('stat');
-            $livePer.removeClass('neg-stat');
-          } else {
-            $livePer.addClass('neg-stat');
-            $livePer.removeClass('stat');
-          }
-          if (active) {
-            checkAlert();
-          }
-        },
-        complete:function (data) {
-         setTimeout(updatePrice, checkInterval);
-        }
-      });
+  function bitstampSuccess(data) {
+    console.log(data);
+    livePrice = currency(parseFloat(data.last));
+    liveOpen = currency(parseFloat(data.open));
+    liveHigh = currency(parseFloat(data.high));
+    liveLow = currency(parseFloat(data.low));
+    liveVol = parseFloat(data.volume);
+    livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
+    $livePrice.text(livePrice);
+    $liveOpen.text(liveOpen);
+    $liveHigh.text(liveHigh);
+    $liveLow.text(liveLow);
+    $liveVol.text(liveVol);
+    $livePer.text(livePer);
+    if (livePer >= 0) {
+      $livePer.addClass('stat');
+      $livePer.removeClass('neg-stat');
     } else {
-      $.ajax({
-        url: mercado,
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-          //console.log(data);
-          livePrice = currency(parseFloat(data.ticker.last));
-          liveOpen = currency(parseFloat(data.ticker.open));
-          liveHigh = currency(parseFloat(data.ticker.high));
-          liveLow = currency(parseFloat(data.ticker.low));
-          liveVol = parseFloat(data.ticker.vol);
-          livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
-          $livePrice.text(livePrice);
-          $liveOpen.text(liveOpen);
-          $liveHigh.text(liveHigh);
-          $liveLow.text(liveLow);
-          $liveVol.text(liveVol);
-          $livePer.text(livePer);
-          if (livePer >= 0) {
-            $livePer.addClass('stat');
-            $livePer.removeClass('neg-stat');
-          } else {
-            $livePer.addClass('neg-stat');
-            $livePer.removeClass('stat');
-          }
-          if (active) {
-            checkAlert();
-          }
-        },
-        complete:function (data) {
-         setTimeout(updatePrice, checkInterval);
-        }
-      });
+      $livePer.addClass('neg-stat');
+      $livePer.removeClass('stat');
+    }
+    if (active) {
+      checkAlert();
     }
   }
+
+  function mercadoSuccess(data) {
+    console.log(data);
+    livePrice = currency(parseFloat(data.ticker.last));
+    liveOpen = currency(parseFloat(data.ticker.open));
+    liveHigh = currency(parseFloat(data.ticker.high));
+    liveLow = currency(parseFloat(data.ticker.low));
+    liveVol = parseFloat(data.ticker.vol);
+    livePer = Math.round((((livePrice - liveOpen)/liveOpen)*100)*100)/100;
+    $livePrice.text(livePrice);
+    $liveOpen.text(liveOpen);
+    $liveHigh.text(liveHigh);
+    $liveLow.text(liveLow);
+    $liveVol.text(liveVol);
+    $livePer.text(livePer);
+    if (livePer >= 0) {
+      $livePer.addClass('stat');
+      $livePer.removeClass('neg-stat');
+    } else {
+      $livePer.addClass('neg-stat');
+      $livePer.removeClass('stat');
+    }
+    if (active) {
+      checkAlert();
+    }
+  }
+
+  function updatePrice() {
+    switch(api) {
+      //-----------------------------BTC
+      case bitstamp_btcusd:
+        $.ajax({
+          url: bitstamp_btcusd,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case bitstamp_btceur:
+        $.ajax({
+          url: bitstamp_btceur,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case mercado_btcbrl:
+        $.ajax({
+          url: mercado_btcbrl,
+          type: 'get',
+          dataType: 'json',
+          success: mercadoSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      //-----------------------------XRP
+      case bitstamp_xrpusd:
+        $.ajax({
+          url: bitstamp_xrpusd,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case bitstamp_xrpeur:
+        $.ajax({
+          url: bitstamp_xrpeur,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case mercado_xrpbrl:
+        $.ajax({
+          url: mercado_xrpbrl,
+          type: 'get',
+          dataType: 'json',
+          success: mercadoSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      //-----------------------------LTC
+      case bitstamp_ltcusd:
+        $.ajax({
+          url: bitstamp_ltcusd,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case bitstamp_ltceur:
+        $.ajax({
+          url: bitstamp_ltceur,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case mercado_ltcbrl:
+        $.ajax({
+          url: mercado_ltcbrl,
+          type: 'get',
+          dataType: 'json',
+          success: mercadoSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      //-----------------------------ETH
+      case bitstamp_ethusd:
+        $.ajax({
+          url: bitstamp_ethusd,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case bitstamp_etheur:
+        $.ajax({
+          url: bitstamp_etheur,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case mercado_ethbrl:
+        $.ajax({
+          url: mercado_ethbrl,
+          type: 'get',
+          dataType: 'json',
+          success: mercadoSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      //-----------------------------BCH
+      case bitstamp_bchusd:
+        $.ajax({
+          url: bitstamp_bchusd,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case bitstamp_bcheur:
+        $.ajax({
+          url: bitstamp_bcheur,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      case mercado_bchbrl:
+        $.ajax({
+          url: mercado_bchbrl,
+          type: 'get',
+          dataType: 'json',
+          success: mercadoSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+        break;
+      //-----------------------------Default: BTCUSD
+      default:
+        $.ajax({
+          url: bitstamp_btcusd,
+          type: 'post',
+          dataType: 'json',
+          success: bitstampSuccess,
+          complete:function (data) {
+           setTimeout(updatePrice, checkInterval);
+          }
+        });
+      }
+    }
   updatePrice();
 
   $('form').submit(function (event) {
@@ -208,10 +387,54 @@ $(function () {
 
   $('#trading-pair').change(function () {
     var choice = $(this).val();
-    if (choice == 'BTCUSD') {
-      api = bitstamp;
-    } else {
-      api = mercado;
+    switch (choice) {
+      case 'BTCUSD':
+        api = bitstamp_btcusd;
+        break;
+      case 'BTCEUR':
+        api = bitstamp_btceur;
+        break;
+      case 'BTCBRL':
+        api = mercado_btcbrl;
+        break;
+      case 'XRPUSD':
+        api = bitstamp_xrpusd;
+        break;
+      case 'XRPEUR':
+        api = bitstamp_xrpeur;
+        break;
+      case 'XRPBRL':
+        api = mercado_xrpbrl;
+        break;
+      case 'LTCUSD':
+        api = bitstamp_ltcusd;
+        break;
+      case 'LTCEUR':
+        api = bitstamp_ltceur;
+        break;
+      case 'LTCBRL':
+        api = mercado_ltcbrl;
+        break;
+      case 'ETHUSD':
+        api = bitstamp_ethusd;
+        break;
+      case 'ETHEUR':
+        api = bitstamp_etheur;
+        break;
+      case 'ETHBRL':
+        api = mercado_ethbrl;
+        break;
+      case 'BCHUSD':
+        api = bitstamp_bchusd;
+        break;
+      case 'BCHEUR':
+        api = bitstamp_bcheur;
+        break;
+      case 'BCHBRL':
+        api = mercado_bchbrl;
+        break;
+      default:
+        api = bitstamp_btcusd;
     }
   });
 
