@@ -12,15 +12,28 @@
   <div class="currency">
     <select name="trading-pair" id="trading-pair">
       <option value="BTCUSD" selected>BTC/USD</option>
+      <option value="BTCEUR">BTC/EUR</option>
       <option value="BTCBRL">BTC/BRL</option>
+      <option value="XRPUSD">XRP/USD</option>
+      <option value="XRPEUR">XRP/EUR</option>
+      <option value="XRPBRL">XRP/BRL</option>
+      <option value="LTCUSD">LTC/USD</option>
+      <option value="LTCEUR">LTC/EUR</option>
+      <option value="LTCBRL">LTC/BRL</option>
+      <option value="ETHUSD">ETH/USD</option>
+      <option value="ETHEUR">ETH/EUR</option>
+      <option value="ETHBRL">ETH/BRL</option>
+      <option value="BCHUSD">BCH/USD</option>
+      <option value="BCHEUR">BCH/EUR</option>
+      <option value="BCHBRL">BCH/BRL</option>
     </select>
   </div>
   <div class="table"><div class="cell">
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="alert">
-            <h1>$<span id="live-price">0.00</span></h1>
+          <div class="panel">
+            <h1><span id="live-price">0.00</span></h1>
             <h5>O<span id="live-open" class="stat">0.00</span></h5>
             <h5>H<span id="live-high" class="stat">0.00</span></h5>
             <h5>L<span id="live-low" class="stat">0.00</span></h5>
@@ -31,7 +44,7 @@
       </div><!-- row -->
       <div class="row">
         <div class="col-4">
-          <div id="alert-1" class="alert">
+          <div id="alert-1" class="panel">
             <h2>Alert 1</h2>
             <form class="set-price" action="#" method="post">
               <select name="opt" class="opt">
@@ -49,10 +62,10 @@
               <source type="audio/mpeg" src="alert-1.mp3">
               Your browser does not support HTML5 Audio!
             </audio>
-          </div><!-- alert -->
+          </div><!-- panel -->
         </div><!-- col-4 -->
         <div class="col-4">
-          <div id="alert-2" class="alert">
+          <div id="alert-2" class="panel">
             <h2>Alert 2</h2>
             <form class="set-price" action="#" method="post">
               <select name="opt" class="opt">
@@ -70,10 +83,10 @@
               <source type="audio/mpeg" src="alert-2.mp3">
               Your browser does not support HTML5 Audio!
             </audio>
-          </div><!-- alert -->
+          </div><!-- panel -->
         </div><!-- col-4 -->
         <div class="col-4">
-          <div id="alert-3" class="alert">
+          <div id="alert-3" class="panel">
             <h2>Alert 3</h2>
             <form class="set-price" action="#" method="post">
               <select name="opt" class="opt">
@@ -91,7 +104,7 @@
               <source type="audio/mpeg" src="alert-3.mp3">
               Your browser does not support HTML5 Audio!
             </audio>
-          </div><!-- alert -->
+          </div><!-- panel -->
         </div><!-- col-4-->
       </div><!-- row -->
       <div class="row">
