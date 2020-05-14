@@ -8,6 +8,10 @@ Makes use of Bitstamp & MercadoBitcoin API's to play a song when the price hits 
 
 The alert prices are only stored in temporary JavaScript variables in your local browsers memory, refresh the page and they are gone. No one else can see your alert prices unless they physically can see your screen. Nothing is stored in a database or anywhere, the only requests that are made remotely are to api that are passing back current price information. No data is shared with any second or third party. This means your settings are 100% private and only known to you!
 
+## Installation
+
+Click the green button at top right to Clone or Download. If Downloading unzip and open the project folder and double click on index.html to open in your default browser.
+
 ## Customizations
 
 ### Changing Songs
