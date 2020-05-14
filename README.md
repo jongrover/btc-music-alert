@@ -17,3 +17,4 @@ Changing songs: name your music file indicating which alert it connects with, su
 ## Tips
 
 Bitcoin address: 3LaGdaKcffxp6rta6CmTKP3oC9TyoPEFzN
+<img src="btc-tip-address.png">
