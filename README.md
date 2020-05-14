@@ -1,6 +1,6 @@
 # Bitcoin Musical Price Alert
 
-<img src="scren-shot.png">
+<img src="screen-shot.png">
 
 Makes use of Bitstamp &/or MercadoBitcoin API to play a song when the price hits your alert settings in USD or BRL. MIT License. Have fun!
 
